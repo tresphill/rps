@@ -148,3 +148,14 @@
       transform: translateY(0px);
     }
   }
+
+  /* Apply shakePlayer animation to .player-hand */
+.player-hand {
+    animation: shakePlayer 3s ease 2s; /* Change the duration and iteration as needed */
+  }
+  
+  /* Apply shakeComputer animation to another element */
+  .computer-hand {
+    animation: shakeComputer 3s ease 2s; /* Change the duration and iteration as needed */
+  }
+  
