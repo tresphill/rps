@@ -1,14 +1,17 @@
+// defining variables
 const game = () => {
   let playerScore = 0;
   let computerScore = 0;
 
   // this function starts the game up
   const startGame = () => {
-    const playBtn = document.querySelector(".start-btn");
+    const playBtn = document.querySelector("button");
     const restartBtn = document.querySelector(".restart-btn");
     const introScreen = document.querySelector(".intro");
     const match = document.querySelector(".match");
     const winner = document.querySelector(".winner"); // this selects the winner text
+    const playerScoreDisplay = document.querySelector(".player-score p");
+    const computerScoreDisplay = document.querySelector(".computer-score p");
 
     // Add event listener for restart button
     restartBtn.addEventListener("click", () => {
@@ -21,6 +24,9 @@ const game = () => {
       introScreen.classList.remove("fadeOut");
       match.classList.remove("fadeIn");
       restartBtn.classList.add("hidden"); // Hide restart button again
+      // Update scoreboard display
+      playerScoreDisplay.textContent = playerScore;
+      computerScoreDisplay.textContent = computerScore;
     });
 
     // this is the event listener for the mouse click on buttons
@@ -68,32 +74,35 @@ const game = () => {
       if (playerChoice === "rock") {
         if (computerChoice === "scissors") {
           winner.textContent = "Player Wins!";
-          return;
+          playerScore++; // Increment player score
         } else {
           winner.textContent = "Computer Wins!";
-          return;
+          computerScore++; // Increment computer score
         }
       }
       // checking for paper
       if (playerChoice === "paper") {
         if (computerChoice === "scissors") {
           winner.textContent = "Computer Wins!";
-          return;
+          computerScore++; // Increment computer score
         } else {
           winner.textContent = "Player Wins!";
-          return;
+          playerScore++; // Increment player score
         }
       }
       // checking for scissors
       if (playerChoice === "scissors") {
         if (computerChoice === "rock") {
           winner.textContent = "Computer Wins!";
-          return;
+          computerScore++; // Increment computer score
         } else {
           winner.textContent = "Player Wins!";
-          return;
+          playerScore++; // Increment player score
         }
       }
+      // Update scoreboard display
+      playerScoreDisplay.textContent = playerScore;
+      computerScoreDisplay.textContent = computerScore;
     };
   };
 
