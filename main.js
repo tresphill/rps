@@ -1,12 +1,11 @@
-// defining variables
 const game = () => {
   let playerScore = 0;
   let computerScore = 0;
 
   // this function starts the game up
   const startGame = () => {
-    const playBtn = document.querySelector(".start-btn"); // Change to start-btn
-    const restartBtn = document.querySelector(".restart-btn"); // Select the restart button
+    const playBtn = document.querySelector(".start-btn");
+    const restartBtn = document.querySelector(".restart-btn");
     const introScreen = document.querySelector(".intro");
     const match = document.querySelector(".match");
     const winner = document.querySelector(".winner"); // this selects the winner text
@@ -21,12 +20,14 @@ const game = () => {
       document.querySelector(".computer-hand").src = ""; // Clear computer hand image
       introScreen.classList.remove("fadeOut");
       match.classList.remove("fadeIn");
+      restartBtn.classList.add("hidden"); // Hide restart button again
     });
 
     // this is the event listener for the mouse click on buttons
     playBtn.addEventListener("click", () => {
       introScreen.classList.add("fadeOut");
       match.classList.add("fadeIn");
+      restartBtn.classList.remove("hidden"); // Show restart button when game starts
 
       // calls playMatch when the game starts
       playMatch();
